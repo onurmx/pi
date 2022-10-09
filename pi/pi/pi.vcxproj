@@ -127,7 +127,17 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="bigfloat.cpp" />
+    <ClCompile Include="fft.cpp" />
+    <ClCompile Include="helpers.cpp" />
+    <ClCompile Include="main.cpp" />
     <ClCompile Include="pi.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="bigfloat.h" />
+    <ClInclude Include="fft.h" />
+    <ClInclude Include="helpers.h" />
+    <ClInclude Include="pi.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
