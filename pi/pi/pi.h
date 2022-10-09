@@ -1,6 +1,4 @@
 #pragma once
 
-#include "bigfloat.h"
-
 void Pi_BSR(std::vector<std::vector<my_complex>>& twiddle_table, BigFloat& P, BigFloat& Q, BigFloat& R, uint32_t a, uint32_t b, size_t p, int tds = 1);
 void Pi(std::vector<std::vector<my_complex>>& twiddle_table, size_t digits, int tds);
