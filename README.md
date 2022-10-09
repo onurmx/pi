@@ -1,2 +1,2 @@
 # pi
-Calculating digits of pi and find pattern inside.
+Calculating digits of pi with arbitrary size and find pattern inside.
