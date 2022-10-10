@@ -9,7 +9,7 @@ int main()
 {
 	omp_set_nested(1);
 	int threads = omp_get_max_threads();
-	size_t digits = 1000;
+	size_t digits = 1000000;
 	std::vector<std::vector<my_complex>> twiddle_table;
 
 	//  Figure out how large to make the table:
