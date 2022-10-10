@@ -61,7 +61,7 @@ void Pi_BSR(std::vector<std::vector<my_complex>>& twiddle_table, BigFloat& P, Bi
 	R = R0.mul(twiddle_table, R1, p, tds);
 }
 
-void Pi(std::vector<std::vector<my_complex>>& twiddle_table, size_t digits, int tds) {
+std::string Pi(std::vector<std::vector<my_complex>>& twiddle_table, size_t digits, int tds, bool silent_mode) {
 	//  The leading 3 doesn't count.
 	digits++;
 
@@ -72,35 +72,35 @@ void Pi(std::vector<std::vector<my_complex>>& twiddle_table, size_t digits, int 
 	if ((uint32_t)terms != terms)
 		throw "Limit Exceeded";
 
-	cout << "Computing Pi..." << endl;
-	cout << "Algorithm: Chudnovsky Formula" << endl << endl;
+	if (!silent_mode) cout << "Computing Pi..." << endl;
+	if (!silent_mode) cout << "Algorithm: Chudnovsky Formula" << endl << endl;
 
 	double time0 = wall_clock();
 
-	cout << "Summing Series... " << terms << " terms" << endl;
+	if (!silent_mode) cout << "Summing Series... " << terms << " terms" << endl;
 	BigFloat P, Q, R;
 	Pi_BSR(twiddle_table, P, Q, R, 0, (uint32_t)terms, p, tds);
 	P = Q.mul(13591409).add(P, p);
 	Q = Q.mul(4270934400);
 	double time1 = wall_clock();
-	cout << "Time: " << time1 - time0 << endl;
+	if (!silent_mode) cout << "Time: " << time1 - time0 << endl;
 
-	cout << "Division... " << endl;
+	if (!silent_mode) cout << "Division... " << endl;
 	P = Q.div(twiddle_table, P, p, tds);
 	double time2 = wall_clock();
-	cout << "Time: " << time2 - time1 << endl;
+	if (!silent_mode) cout << "Time: " << time2 - time1 << endl;
 
-	cout << "InvSqrt... " << endl;
+	if (!silent_mode) cout << "InvSqrt... " << endl;
 	Q = invsqrt(twiddle_table, 10005, p, tds);
 	double time3 = wall_clock();
-	cout << "Time: " << time3 - time2 << endl;
+	if (!silent_mode) cout << "Time: " << time3 - time2 << endl;
 
-	cout << "Final Multiply... " << endl;
+	if (!silent_mode) cout << "Final Multiply... " << endl;
 	P = P.mul(twiddle_table, Q, p, tds);
 	double time4 = wall_clock();
-	cout << "Time: " << time4 - time3 << endl;
+	if (!silent_mode) cout << "Time: " << time4 - time3 << endl;
 
-	cout << "Total Time = " << time4 - time0 << endl << endl;
+	if (!silent_mode) cout << "Total Time = " << time4 - time0 << endl << endl;
 
-	dump_to_file("pi.txt", P.to_string(digits));
+	return P.to_string(digits);
 }

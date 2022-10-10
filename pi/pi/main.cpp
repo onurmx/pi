@@ -1,4 +1,5 @@
 #include "bigfloat.h"
+#include "helpers.h"
 #include <omp.h>
 #include "pi.h"
 
@@ -20,5 +21,5 @@ int main()
 	}
 	fft_ensure_table(twiddle_table, k);
 
-	Pi(twiddle_table, digits, threads);
+	dump_to_file("pi_output.txt", Pi(twiddle_table, digits, threads, false));
 }
