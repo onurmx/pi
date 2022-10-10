@@ -129,6 +129,7 @@
   <ItemGroup>
     <ClCompile Include="bigfloat.cpp" />
     <ClCompile Include="fft.cpp" />
+    <ClCompile Include="findpattern.cpp" />
     <ClCompile Include="helpers.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="pi.cpp" />
@@ -136,6 +137,7 @@
   <ItemGroup>
     <ClInclude Include="bigfloat.h" />
     <ClInclude Include="fft.h" />
+    <ClInclude Include="findpattern.h" />
     <ClInclude Include="helpers.h" />
     <ClInclude Include="pi.h" />
   </ItemGroup>

@@ -30,6 +30,9 @@
     <ClCompile Include="fft.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="findpattern.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="bigfloat.h">
@@ -42,6 +45,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="fft.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="findpattern.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
