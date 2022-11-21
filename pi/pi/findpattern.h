@@ -1,5 +1,9 @@
 #pragma once
 
+#include <stdio.h>
+#include <iostream>
+#include <vector>
 #include <string>
 
-unsigned long int find_pattern(const std::string& pi, const std::string& pattern);
+int KMP_search(std::string text, std::string pattern);
+std::vector<int> KMP_table(std::string);
