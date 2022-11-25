@@ -4,7 +4,7 @@
 Chudnovsky::Chudnovsky()
 {
 	// Constants
-	DIGITS = 1000000;
+	DIGITS = 1000000; /*one million: 1000000, ten million: 10000000, hundred million: 100000000*/
 	A = 13591409;
 	B = 545140134;
 	C = 640320;
@@ -59,13 +59,4 @@ void Chudnovsky::compPi()
 	// Time (end of computation)
 	t1 = clock();
 	std::cout << "TIME (COMPUTE): " << (double)(t1 - t0) / CLOCKS_PER_SEC << " seconds." << std::endl;
-
-	//// Printing
-	//ofstream ofs("pi.txt");
-	//ofs.precision(DIGITS + 1);
-	//ofs << pi << endl;
-
-	// Time (end of writing)
-	t2 = clock();
-	std::cout << "TIME (WRITE)  : " << (double)(t2 - t1) / CLOCKS_PER_SEC << " seconds." << std::endl;
 }
