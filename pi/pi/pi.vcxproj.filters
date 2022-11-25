@@ -26,16 +26,16 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="gmp.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="gmpxx.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="kmp.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="chudnovsky.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="gmp.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="gmpxx.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

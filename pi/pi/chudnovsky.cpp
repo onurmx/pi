@@ -4,7 +4,7 @@
 Chudnovsky::Chudnovsky()
 {
 	// Constants
-	DIGITS = 1000000; /*one million: 1000000, ten million: 10000000, hundred million: 100000000*/
+	DIGITS = 100000000; /*one million: 1000000, ten million: 10000000, hundred million: 100000000*/
 	A = 13591409;
 	B = 545140134;
 	C = 640320;
