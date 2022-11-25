@@ -18,7 +18,10 @@
     <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="findpattern.cpp">
+    <ClCompile Include="kmp.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="chudnovsky.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -29,7 +32,10 @@
     <ClInclude Include="gmpxx.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="findpattern.h">
+    <ClInclude Include="kmp.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="chudnovsky.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

@@ -1,4 +1,4 @@
-#include "findpattern.h"
+#include "kmp.h"
 
 /*
  KMP_search

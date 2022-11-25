@@ -132,11 +132,13 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="findpattern.cpp" />
+    <ClCompile Include="chudnovsky.cpp" />
+    <ClCompile Include="kmp.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="findpattern.h" />
+    <ClInclude Include="chudnovsky.h" />
+    <ClInclude Include="kmp.h" />
     <ClInclude Include="gmp.h" />
     <ClInclude Include="gmpxx.h" />
   </ItemGroup>
