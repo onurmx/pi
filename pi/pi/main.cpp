@@ -6,7 +6,7 @@ int main() {
 	try
 	{
 		// Instantiation
-		Chudnovsky objMain;
+		Chudnovsky objMain(1000000);
 
 		// Compute PI
 		objMain.compPi();

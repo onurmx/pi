@@ -18,6 +18,6 @@ class Chudnovsky
 	PQT compPQT(int n1, int n2); // Computer PQT (by BSA)
 
 public:
-	Chudnovsky(); // Constructor
+	Chudnovsky(int digits); // Constructor
 	void compPi(); // Compute PI
 };

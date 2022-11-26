@@ -1,10 +1,10 @@
 #include "chudnovsky.h"
 
 /*Constructor*/
-Chudnovsky::Chudnovsky()
+Chudnovsky::Chudnovsky(int digits)
 {
 	// Constants
-	DIGITS = 100000000; /*one million: 1000000, ten million: 10000000, hundred million: 100000000*/
+	DIGITS = digits;
 	A = 13591409;
 	B = 545140134;
 	C = 640320;
