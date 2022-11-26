@@ -1,23 +1,23 @@
 #include "chudnovsky.h"
 
-/*Constructor*/
+/* Constructor */
 Chudnovsky::Chudnovsky(int digits)
 {
-	// Constants
-	DIGITS = digits;
+	/* Constants */
+	DIGITS = 1 + digits; /* 1 => 3, digits => 1415... */
 	A = 13591409;
 	B = 545140134;
 	C = 640320;
 	D = 426880;
 	E = 10005;
-	DIGITS_PER_TERM = 14.1816474627254776555;  // = log(53360^3) / log(10)
+	DIGITS_PER_TERM = 14.1816474627254776555; /* log(53360^3) / log(10) */
 	C3_24 = C * C * C / 24;
 	N = DIGITS / DIGITS_PER_TERM;
 	PREC = DIGITS * log2(10);
 }
 
-/*Compute PQT (by Binary Splitting Algorithm)*/
-PQT Chudnovsky::compPQT(int n1, int n2)
+/* Binary Splitting Recursion for the Chudnovsky Formula */
+PQT Chudnovsky::bsr(int n1, int n2)
 {
 	int m;
 	PQT res;
@@ -32,8 +32,8 @@ PQT Chudnovsky::compPQT(int n1, int n2)
 	}
 	else {
 		m = (n1 + n2) / 2;
-		PQT res1 = compPQT(n1, m);
-		PQT res2 = compPQT(m, n2);
+		PQT res1 = bsr(n1, m);
+		PQT res2 = bsr(m, n2);
 		res.P = res1.P * res2.P;
 		res.Q = res1.Q * res2.Q;
 		res.T = res1.T * res2.Q + res1.P * res2.T;
@@ -42,21 +42,27 @@ PQT Chudnovsky::compPQT(int n1, int n2)
 	return res;
 }
 
-/*Compute PI*/
-void Chudnovsky::compPi()
+/* Compute PI */
+std::string Chudnovsky::computePi()
 {
-	std::cout << "**** PI Computation ( " << DIGITS << " digits )" << std::endl;
+	std::cout << "Computing PI for " << DIGITS - 1 << " digits after the decimal point." << std::endl;
+	std::cout << "Calculation has been started..." << std::endl;
 
-	// Time (start)
-	t0 = clock();
+	t0 = clock(); /* Calculation start time */
 
-	// Compute Pi
-	PQT PQT = compPQT(0, N);
+	/* Calculation procedure */
+	/* ********Start******** */
+	PQT PQT = bsr(0, N);
 	mpf_class pi(0, PREC);
 	pi = D * sqrt((mpf_class)E) * PQT.Q;
 	pi /= (A * PQT.Q + PQT.T);
+	/* *********End********* */
 
-	// Time (end of computation)
-	t1 = clock();
-	std::cout << "TIME (COMPUTE): " << (double)(t1 - t0) / CLOCKS_PER_SEC << " seconds." << std::endl;
+	t1 = clock(); /* Calculation end time */
+	std::cout << "Computed in " << (double)(t1 - t0) / CLOCKS_PER_SEC << " seconds." << std::endl;
+
+	mp_exp_t exp;
+	std::string str = pi.get_str(exp, 10, 0);
+
+	return str.substr(0, 1) + "." + str.substr(1, DIGITS - 1);
 }
