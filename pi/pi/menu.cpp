@@ -108,7 +108,7 @@ void menu() {
 				std::getline(f2, line2);
 				f1.close();
 				f2.close();
-				
+
 
 				if (line1 == line2) {
 					std::ofstream file;
