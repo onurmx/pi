@@ -4,7 +4,7 @@
 Chudnovsky::Chudnovsky(int digits)
 {
 	/* Constants */
-	DIGITS = 1 + digits; /* 1 => 3, digits => 1415... */
+	DIGITS = digits;
 	A = 13591409;
 	B = 545140134;
 	C = 640320;
@@ -64,5 +64,5 @@ std::string Chudnovsky::computePi()
 	mp_exp_t exp;
 	std::string str = pi.get_str(exp, 10, 0);
 
-	return str.substr(0, 1) + "." + str.substr(1, DIGITS - 1);
+	return str;
 }

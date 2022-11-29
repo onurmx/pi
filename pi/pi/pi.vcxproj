@@ -142,12 +142,14 @@
     <ClCompile Include="chudnovsky.cpp" />
     <ClCompile Include="kmp.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="menu.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="chudnovsky.h" />
     <ClInclude Include="gmp.h" />
     <ClInclude Include="gmpxx.h" />
     <ClInclude Include="kmp.h" />
+    <ClInclude Include="menu.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

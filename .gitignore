@@ -349,5 +349,6 @@ MigrationBackup/
 # Ionide (cross platform F# VS Code tools) working folder
 .ionide/
 
-# Pi output file
+# output files
 pi.txt
+pattern_search.txt
