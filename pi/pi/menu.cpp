@@ -24,7 +24,7 @@ void menu() {
 					std::cout << "Digit should be greater or equal to 15." << std::endl;
 					continue;
 				}
-				
+
 				Chudnovsky c(stoi(digits));
 				std::string result = c.computePi();
 
@@ -61,12 +61,21 @@ void menu() {
 				}
 				else {
 					std::string result = "";
+
+					// calculate time
+					clock_t t0, t1;
+					t0 = clock();
+					std::cout << "Pattern seach has been started..." << std::endl;
 					for (int i = start; i <= end; i++) {
 						int index = KMP_search(line, std::to_string(i));
 						if (index != -1) {
 							result += std::to_string(i) + "," + std::to_string(index) + "\n";
 						}
 					}
+					t1 = clock();
+					double time = (double)(t1 - t0) / CLOCKS_PER_SEC;
+					std::cout << "Pattern search completed in " << (double)(t1 - t0) / CLOCKS_PER_SEC << " seconds." << std::endl;
+					std::cout << "Result saved to \"pattern_search.txt\"." << std::endl << std::endl;
 
 					std::ofstream file;
 					file.open("pattern_search.txt");
@@ -99,18 +108,21 @@ void menu() {
 				std::getline(f2, line2);
 				f1.close();
 				f2.close();
+				
 
 				if (line1 == line2) {
 					std::ofstream file;
 					file.open("compare.txt");
 					file << "File " << file1 << " and file " << file2 << " are the same." << std::endl;
 					file.close();
+					std::cout << "Result saved to \"compare.txt\"." << std::endl << std::endl;
 				}
 				else {
 					std::ofstream file;
 					file.open("compare.txt");
 					file << "File " << file1 << " and file " << file2 << " are not the same." << std::endl;
 					file.close();
+					std::cout << "Result saved to \"compare.txt\"." << std::endl << std::endl;
 				}
 			}
 			else {
