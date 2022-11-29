@@ -20,6 +20,11 @@ void menu() {
 				std::cin >> digits;
 				std::cout << std::endl;
 
+				if (stoi(digits) < 15) {
+					std::cout << "Digit should be greater or equal to 15." << std::endl;
+					continue;
+				}
+				
 				Chudnovsky c(stoi(digits));
 				std::string result = c.computePi();
 
@@ -34,7 +39,6 @@ void menu() {
 			}
 		}
 		else if (command == "2") {
-			// check if file "pi.txt" exists if yes, open it
 			std::ifstream file;
 			file.open("pi.txt");
 			if (file.is_open()) {
@@ -50,10 +54,10 @@ void menu() {
 				std::cout << "Enter upper bound of interval." << std::endl;
 				std::cout << ">> ";
 				std::cin >> end_string;
-				
+
 				int start = stoi(start_string), end = stoi(end_string);
 				if (start > end) {
-					std::cout << "ERROR! Start must be smaller than end." << std::endl;
+					std::cout << "ERROR! Start must be smaller than end." << std::endl << std::endl;
 				}
 				else {
 					std::string result = "";
@@ -71,11 +75,47 @@ void menu() {
 				}
 			}
 			else {
-				std::cout << "File \"pi.txt\" does not exist. First Calculate!" << std::endl;
+				std::cout << "File \"pi.txt\" does not exist. First Calculate Pi!" << std::endl << std::endl;
 			}
 		}
 		else if (command == "3") {
+			std::string file1, file2;
+			std::cout << "Enter first file name." << std::endl;
+			std::cout << ">> ";
+			std::cin >> file1;
+			std::cout << std::endl;
+			std::cout << "Enter second file name." << std::endl;
+			std::cout << ">> ";
+			std::cin >> file2;
+			std::cout << std::endl;
 
+			std::ifstream f1, f2;
+			f1.open(file1);
+			f2.open(file2);
+
+			if (f1.is_open() && f2.is_open()) {
+				std::string line1, line2;
+				std::getline(f1, line1);
+				std::getline(f2, line2);
+				f1.close();
+				f2.close();
+
+				if (line1 == line2) {
+					std::ofstream file;
+					file.open("compare.txt");
+					file << "File " << file1 << " and file " << file2 << " are the same." << std::endl;
+					file.close();
+				}
+				else {
+					std::ofstream file;
+					file.open("compare.txt");
+					file << "File " << file1 << " and file " << file2 << " are not the same." << std::endl;
+					file.close();
+				}
+			}
+			else {
+				std::cout << "ERROR! File does not exist." << std::endl;
+			}
 		}
 		else if (command == "4") {
 			break;

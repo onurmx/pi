@@ -352,3 +352,4 @@ MigrationBackup/
 # output files
 pi.txt
 pattern_search.txt
+compare.txt

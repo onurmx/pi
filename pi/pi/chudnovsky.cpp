@@ -45,7 +45,7 @@ PQT Chudnovsky::bsr(int n1, int n2)
 /* Compute PI */
 std::string Chudnovsky::computePi()
 {
-	std::cout << "Computing PI for " << DIGITS - 1 << " digits after the decimal point." << std::endl;
+	std::cout << "Computing " << DIGITS << " digits of pi." << std::endl;
 	std::cout << "Calculation has been started..." << std::endl;
 
 	t0 = clock(); /* Calculation start time */
@@ -64,5 +64,5 @@ std::string Chudnovsky::computePi()
 	mp_exp_t exp;
 	std::string str = pi.get_str(exp, 10, 0);
 
-	return str;
+	return str.substr(0, DIGITS);
 }
