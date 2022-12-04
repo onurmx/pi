@@ -15,7 +15,7 @@ void menu() {
 			try
 			{
 				std::string digits;
-				std::cout << "Enter number of digits to calculate." << std::endl;
+				std::cout << "Enter number of digits after dot to calculate." << std::endl;
 				std::cout << ">> ";
 				std::cin >> digits;
 				std::cout << std::endl;
