@@ -4,8 +4,8 @@ void menu() {
 	while (true) {
 		std::string command;
 		std::cout << "Press 1 to calculate pi." << std::endl;
-		std::cout << "Press 2 to find numbers in the interval from pi." << std::endl;
-		std::cout << "Press 3 to compare two files" << std::endl;
+		std::cout << "Press 2 to calculate f_pi function." << std::endl;
+		std::cout << "Press 3 to compare two files." << std::endl;
 		std::cout << "Press 4 to exit from program." << std::endl;
 		std::cout << ">> ";
 		std::cin >> command;
@@ -28,6 +28,7 @@ void menu() {
 				Chudnovsky c(stoi(digits));
 				std::string result = c.computePi();
 
+				std::cout << "Saving result to file..." << std::endl;
 				std::ofstream file;
 				file.open("pi.txt");
 				file << result;
@@ -55,7 +56,7 @@ void menu() {
 				std::cout << ">> ";
 				std::cin >> end_string;
 
-				int start = stoi(start_string), end = stoi(end_string);
+				long long int start = std::stoll(start_string), end = std::stoll(end_string);
 				if (start > end) {
 					std::cout << "ERROR! Start must be smaller than end." << std::endl << std::endl;
 				}
@@ -66,21 +67,25 @@ void menu() {
 					clock_t t0, t1;
 					t0 = clock();
 					std::cout << "Pattern seach has been started..." << std::endl;
-					for (int i = start; i <= end; i++) {
+					for (long long int i = start; i <= end; i++) {
 						int index = KMP_search(line, std::to_string(i));
 						if (index != -1) {
 							result += std::to_string(i) + "," + std::to_string(index) + "\n";
+						}
+						else {
+							result += std::to_string(i) + ",-1\n";
 						}
 					}
 					t1 = clock();
 					double time = (double)(t1 - t0) / CLOCKS_PER_SEC;
 					std::cout << "Pattern search completed in " << (double)(t1 - t0) / CLOCKS_PER_SEC << " seconds." << std::endl;
-					std::cout << "Result saved to \"pattern_search.txt\"." << std::endl << std::endl;
 
+					std::cout << "Saving result to file..." << std::endl;
 					std::ofstream file;
-					file.open("pattern_search.txt");
+					file.open("f_pi.txt");
 					file << result;
 					file.close();
+					std::cout << "Result saved to \"f_pi.txt\"." << std::endl << std::endl;
 				}
 			}
 			else {
