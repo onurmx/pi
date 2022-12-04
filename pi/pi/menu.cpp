@@ -94,11 +94,11 @@ void menu() {
 		}
 		else if (command == "3") {
 			std::string file1, file2;
-			std::cout << "Enter first full file path." << std::endl;
+			std::cout << "Enter first full file path or relative file path." << std::endl;
 			std::cout << ">> ";
 			std::cin >> file1;
 			std::cout << std::endl;
-			std::cout << "Enter second full file path." << std::endl;
+			std::cout << "Enter second full file path or relative file path." << std::endl;
 			std::cout << ">> ";
 			std::cin >> file2;
 			std::cout << std::endl;
