@@ -18,10 +18,10 @@
     <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="kmp.cpp">
+    <ClCompile Include="chudnovsky.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="chudnovsky.cpp">
+    <ClCompile Include="kmp.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="menu.cpp">
@@ -32,16 +32,10 @@
     <ClInclude Include="kmp.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="chudnovsky.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="gmp.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="gmpxx.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="menu.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="chudnovsky.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

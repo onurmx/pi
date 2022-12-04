@@ -1,8 +1,7 @@
 #pragma once
 
-#include "gmp.h"
-#include "gmpxx.h"
 #include <iostream>
+#include <mpirxx.h>
 
 struct PQT
 {
