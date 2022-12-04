@@ -58,7 +58,7 @@ void menu() {
 
 				long long int start = std::stoll(start_string), end = std::stoll(end_string);
 				if (start > end) {
-					std::cout << "ERROR! Start must be smaller than end." << std::endl << std::endl;
+					std::cout << "ERROR! Lower bound should less than upper bound." << std::endl << std::endl;
 				}
 				else {
 					std::string result = "";
@@ -94,11 +94,11 @@ void menu() {
 		}
 		else if (command == "3") {
 			std::string file1, file2;
-			std::cout << "Enter first file name." << std::endl;
+			std::cout << "Enter first full file path." << std::endl;
 			std::cout << ">> ";
 			std::cin >> file1;
 			std::cout << std::endl;
-			std::cout << "Enter second file name." << std::endl;
+			std::cout << "Enter second full file path." << std::endl;
 			std::cout << ">> ";
 			std::cin >> file2;
 			std::cout << std::endl;
