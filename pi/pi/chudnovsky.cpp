@@ -4,7 +4,7 @@
 Chudnovsky::Chudnovsky(int digits)
 {
 	/* Constants */
-	DIGITS = digits;
+	DIGITS = digits + 1;
 	A = 13591409;
 	B = 545140134;
 	C = 640320;
@@ -45,7 +45,7 @@ PQT Chudnovsky::bsr(int n1, int n2)
 /* Compute PI */
 std::string Chudnovsky::computePi()
 {
-	std::cout << "Computing " << DIGITS << " digits of pi." << std::endl;
+	std::cout << "Computing " << DIGITS - 1 << " digits of pi after dot." << std::endl;
 	std::cout << "Calculation has been started..." << std::endl;
 
 	t0 = clock(); /* Calculation start time */
