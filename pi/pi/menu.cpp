@@ -67,13 +67,20 @@ void menu() {
 					clock_t t0, t1;
 					t0 = clock();
 					std::cout << "Pattern seach has been started..." << std::endl;
-					for (long long int i = start; i <= end; i++) {
-						int index = KMP_search(line, std::to_string(i));
+					int index = KMP_search(line, std::to_string(start));
+					if (index != -1) {
+						result += std::to_string(start) + "," + std::to_string(index);
+					}
+					else {
+						result += std::to_string(start) + ",-1";
+					}
+					for (long long int i = ++start; i <= end; i++) {
+						index = KMP_search(line, std::to_string(i));
 						if (index != -1) {
-							result += std::to_string(i) + "," + std::to_string(index) + "\n";
+							result += "\n" + std::to_string(i) + "," + std::to_string(index);
 						}
 						else {
-							result += std::to_string(i) + ",-1\n";
+							result += "\n" + std::to_string(i) + ",-1";
 						}
 					}
 					t1 = clock();
