@@ -122,6 +122,8 @@ void menu() {
 				else {
 					std::cout << "Files are not equal." << std::endl << std::endl;
 				}
+				f1.close();
+				f2.close();
 			}
 			else {
 				std::cout << "ERROR! File does not exist." << std::endl << std::endl;
