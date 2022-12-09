@@ -100,33 +100,90 @@ void menu() {
 			}
 		}
 		else if (command == "3") {
-			std::string file1, file2;
-			std::cout << "Enter first file name." << std::endl;
+			// ask user compare digits of pi or f_pi
+			std::string compare;
+			std::cout << "Press 1 to compare digits of pi." << std::endl;
+			std::cout << "Press 2 to compare f_pi table." << std::endl;
 			std::cout << ">> ";
-			std::cin >> file1;
-			std::cout << std::endl;
-			std::cout << "Enter second file name." << std::endl;
-			std::cout << ">> ";
-			std::cin >> file2;
+			std::cin >> compare;
 			std::cout << std::endl;
 
-			std::ifstream f1, f2;
-			f1.open(file1);
-			f2.open(file2);
-			if (f1.is_open() && f2.is_open()) {
-				std::string file_contents1{ std::istreambuf_iterator<char>(f1), std::istreambuf_iterator<char>() };
-				std::string file_contents2{ std::istreambuf_iterator<char>(f2), std::istreambuf_iterator<char>() };
-				if (file_contents1 == file_contents2) {
-					std::cout << "Files are equal." << std::endl << std::endl;
+			if (compare == "1") {
+				std::string file1, file2;
+				std::cout << "Enter first file name." << std::endl;
+				std::cout << ">> ";
+				std::cin >> file1;
+				std::cout << std::endl;
+				std::cout << "Enter second file name." << std::endl;
+				std::cout << ">> ";
+				std::cin >> file2;
+				std::cout << std::endl;
+
+				std::ifstream f1, f2;
+				f1.open(file1);
+				f2.open(file2);
+
+				if (f1.is_open() && f2.is_open()) {
+					std::string line1, line2;
+					std::getline(f1, line1);
+					std::getline(f2, line2);
+					f1.close();
+					f2.close();
+
+					int index = 0;
+					while ((line1[index] == line2[index]) && (line1[index] != '\0' && line2[index] != '\0')) {
+						index++;
+
+					}
+
+					if (index == line1.length() && index == line2.length()) {
+						std::cout << "Files are identical." << std::endl << std::endl;
+					}
+					else {
+						std::cout << "Files are different." << std::endl;
+						std::cout << "Difference start at index " << index << "." << std::endl << std::endl;
+					}
 				}
 				else {
-					std::cout << "Files are not equal." << std::endl << std::endl;
+					std::cout << "ERROR! File does not exist." << std::endl;
 				}
-				f1.close();
-				f2.close();
 			}
-			else {
-				std::cout << "ERROR! File does not exist." << std::endl << std::endl;
+			else if (compare == "2") {
+				std::string file1, file2;
+				std::cout << "Enter first file name." << std::endl;
+				std::cout << ">> ";
+				std::cin >> file1;
+				std::cout << std::endl;
+				std::cout << "Enter second file name." << std::endl;
+				std::cout << ">> ";
+				std::cin >> file2;
+				std::cout << std::endl;
+
+				std::ifstream f1, f2;
+				f1.open(file1);
+				f2.open(file2);
+
+				if (f1.is_open() && f2.is_open()) {
+					std::string line1, line2;
+					int index = 1;
+					int result = 1;
+					while (std::getline(f1, line1) && std::getline(f2, line2)) {
+						if (line1 != line2) {
+							result = 0;
+							break;
+						}
+						index++;
+					}
+					if (result == 1) {
+						std::cout << "Files are identical." << std::endl << std::endl;
+					}
+					else {
+						std::cout << "Files are different at line " << index << "." << std::endl << std::endl;
+					}
+				}
+				else {
+					std::cout << "ERROR! File does not exist." << std::endl;
+				}
 			}
 		}
 		else if (command == "4") {
